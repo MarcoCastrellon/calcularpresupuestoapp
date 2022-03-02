@@ -6,13 +6,13 @@ let vacationCalc = document.getElementById('vacationCalc');
 
 
   function getValues () {
-    let destiny = document.getElementById('destiny').value ;
-    let budget = document.getElementById('budget').value ;
-    let acomodation = document.getElementById('acomodation').value ;
-    let transport = document.getElementById('transport').value ;
-    let food = document.getElementById('food').value ;
+    let destino = document.getElementById('destino').value ;
+    let presupuesto = document.getElementById('presupuesto').value ;
+    let alojamiento = document.getElementById('alojamiento').value ;
+    let transporte = document.getElementById('transporte').value ;
+    let comida = document.getElementById('comida').value ;
 
-    return { destiny, budget, acomodation, transport, food }
+    return { destino, presupuesto, alojamiento, transporte, comida }
 
 
   }
@@ -20,32 +20,33 @@ let vacationCalc = document.getElementById('vacationCalc');
   function calcExpenses (e) {
     e.preventDefault()
 
-    const { destiny, budget, acomodation, transport, food } = getValues();
+    const { destino, presupuesto, alojamiento, transporte, comida} = getValues();
 
-    let expences = parseInt(acomodation) + parseInt(transport) + parseInt(food) ;
+    let expences = parseInt(alojamiento) + parseInt(transporte) + parseInt(comida) ;
   
-    let balance = budget - expences;
+    let balance = presupuesto - expences;
 
-    UI(destiny, budget, balance);
+    UI(destino, presupuesto, balance);
 
+    
 
   }
 
 
 
-  function UI (destiny, budget, balance) {
+  function UI (destino, presupuesto, balance) {
  
     let pCalculator = document.querySelectorAll(".p-calculator");
-    let dDestiny = document.querySelector(".d-destiny")
-    let dBudget = document.querySelector(".d-budget")
+    let dDestino = document.querySelector(".d-destiny")
+    let dPresupuesto = document.querySelector(".d-budget")
     let dBalance = document.querySelector(".d-balance")
     
-    dDestiny.textContent = destiny;
-    dBudget.textContent = budget;
+    dDestino.textContent = destino;
+    dPresupuesto.textContent = presupuesto;
     dBalance.textContent = balance;
 
-    pCalculator.appendchild(dDestiny);
-    pCalculator.appendchild(dBudget);
+    pCalculator.appendchild(dDestino);
+    pCalculator.appendchild(dPresupuesto);
     pCalculator.appendchild(dBalance);
 
     
