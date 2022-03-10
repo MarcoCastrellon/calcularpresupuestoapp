@@ -17,14 +17,25 @@ let vacationCalc = document.getElementById('vacationCalc');
 
   }
 
+
   function calcExpenses (e) {
     e.preventDefault()
 
     const { destino, presupuesto, alojamiento, transporte, comida} = getValues();
+    if (destino, presupuesto, alojamiento, transporte, comida == "") {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Complete los campos!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+      return
+    }
 
     let expences = parseInt(alojamiento) + parseInt(transporte) + parseInt(comida) ;
   
     let balance = presupuesto - expences;
+
 
     UI(destino, presupuesto, balance);
 
@@ -41,6 +52,8 @@ let vacationCalc = document.getElementById('vacationCalc');
     let dPresupuesto = document.querySelector(".d-budget")
     let dBalance = document.querySelector(".d-balance")
     
+
+
     dDestino.textContent = destino;
     dPresupuesto.textContent = presupuesto;
     dBalance.textContent = balance;
@@ -48,8 +61,6 @@ let vacationCalc = document.getElementById('vacationCalc');
     pCalculator.appendchild(dDestino);
     pCalculator.appendchild(dPresupuesto);
     pCalculator.appendchild(dBalance);
-
-    
 
   }
 
